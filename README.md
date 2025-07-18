@@ -11,13 +11,13 @@ Keep your memories pinned to the map.
 6. One-click delete (cleans up photos on disk, too).
 
 # Quick start
-bash
-git clone https://github.com/ronitbhatia/wanderlog.git
-cd wanderlog
-python -m venv venv && source venv/bin/activate   # or .\venv\Scripts\activate
-pip install -r requirements.txt
-flask --app app run --debug
-Open http://127.0.0.1:5000
+
+1. git clone https://github.com/ronitbhatia/wanderlog.git
+2. cd wanderlog
+3. python -m venv venv && source venv/bin/activate   # or .\venv\Scripts\activate
+4. pip install -r requirements.txt
+5. flask --app app run --debug
+6. Open http://127.0.0.1:5000
 
 # Folder Structure
 wanderlog/
