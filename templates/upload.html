@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Upload photo for {{ trip.title }}</h1>
+<form method="post" enctype="multipart/form-data">
+  <input type="file" name="photo" required><br>
+  <input type="text" name="caption" placeholder="Caption"><br>
+  <button>Upload</button>
+</form>
+{% endblock %}

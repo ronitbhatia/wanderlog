@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Photo Gallery</h1>
+{% for t in trips %}
+  <h2>{{ t.title }} ({{ t.location }})</h2>
+  <div class="gallery">
+    {% for p in t.photos %}
+      <figure>
+        <img src="{{ url_for('static', filename='uploads/' + p.filename) }}" alt="">
+        <figcaption>{{ p.caption or 'Untitled' }}</figcaption>
+      </figure>
+    {% else %}
+      <p>No photos.</p>
+    {% endfor %}
+  </div>
+{% endfor %}
+{% endblock %}
