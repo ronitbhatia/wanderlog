@@ -12,7 +12,7 @@ Keep your memories pinned to the map.
 
 # Quick start
 bash
-git clone https://github.com/YOUR_USERNAME/wanderlog.git
+git clone https://github.com/ronitbhatia/wanderlog.git
 cd wanderlog
 python -m venv venv && source venv/bin/activate   # or .\venv\Scripts\activate
 pip install -r requirements.txt
