@@ -1,4 +1,4 @@
-# Wanderlog – A Lightweight Travel Journal
+# Voyagelog – A Lightweight Travel Journal
 Keep your memories pinned to the map.
 
 
@@ -20,13 +20,13 @@ Keep your memories pinned to the map.
 6. Open http://127.0.0.1:5000
 
 # Folder Structure
-wanderlog/
+voyagelog/
 ├── app.py                     # Main Flask application
 ├── requirements.txt           # Python dependencies
 ├── .env                       # Environment variables (SECRET_KEY)
 ├── README.md                  # This file
 ├── instance/
-│   └── wanderlog.db           # SQLite database (auto-created)
+│   └── voyagelog.db           # SQLite database (auto-created)
 ├── static/
 │   ├── css/
 │   │   └── style.css          # Dark-theme & glass-morphism styles

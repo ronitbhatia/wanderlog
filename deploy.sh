@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "🚀 Deploying WanderLog to Streamlit Cloud..."
+echo "🚀 Deploying VoyageLog to Streamlit Cloud..."
 
 # Check if streamlit is installed
 if ! command -v streamlit &> /dev/null; then

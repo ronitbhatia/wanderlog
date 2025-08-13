@@ -12,7 +12,7 @@ load_dotenv()                      # read .env
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev')
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///wanderlog.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///voyagelog.db'
 app.config['UPLOAD_FOLDER'] = Path(app.root_path) / 'static' / 'uploads'
 app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1024   # 8 MB
 app.config['UPLOAD_FOLDER'].mkdir(exist_ok=True)
@@ -23,7 +23,7 @@ def geocode(place: str):
     """Return (lat, lon) tuple for a human place name using OSM Nominatim."""
     url = "https://nominatim.openstreetmap.org/search"
     params = {"q": place, "format": "json", "limit": 1}
-    headers = {"User-Agent": "Wanderlog-localdev"}
+    headers = {"User-Agent": "Voyagelog-localdev"}
     r = requests.get(url, params=params, headers=headers, timeout=5)
     r.raise_for_status()
     data = r.json()

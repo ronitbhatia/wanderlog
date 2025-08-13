@@ -11,7 +11,7 @@ import io
 
 # Page configuration
 st.set_page_config(
-    page_title="WanderLog - Travel Journal",
+    page_title="VoyageLog - Travel Journal",
     page_icon="✈️",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -19,7 +19,7 @@ st.set_page_config(
 
 # Initialize database
 def init_db():
-    conn = sqlite3.connect('wanderlog.db')
+    conn = sqlite3.connect('voyagelog.db')
     c = conn.cursor()
     c.execute('''
         CREATE TABLE IF NOT EXISTS trip (
@@ -50,7 +50,7 @@ def geocode(place: str):
     """Return (lat, lon) tuple for a human place name using OSM Nominatim."""
     url = "https://nominatim.openstreetmap.org/search"
     params = {"q": place, "format": "json", "limit": 1}
-    headers = {"User-Agent": "Wanderlog-streamlit"}
+    headers = {"User-Agent": "Voyagelog-streamlit"}
     try:
         r = requests.get(url, params=params, headers=headers, timeout=5)
         r.raise_for_status()
@@ -68,7 +68,7 @@ def add_trip(title, location, start_date, end_date, description):
         st.error("Location not found – try a more specific name.")
         return False
     
-    conn = sqlite3.connect('wanderlog.db')
+    conn = sqlite3.connect('voyagelog.db')
     c = conn.cursor()
     c.execute('''
         INSERT INTO trip (title, location, latitude, longitude, start_date, end_date, description)
@@ -79,13 +79,13 @@ def add_trip(title, location, start_date, end_date, description):
     return True
 
 def get_trips():
-    conn = sqlite3.connect('wanderlog.db')
+    conn = sqlite3.connect('voyagelog.db')
     trips = pd.read_sql_query("SELECT * FROM trip ORDER BY start_date DESC", conn)
     conn.close()
     return trips
 
 def delete_trip(trip_id):
-    conn = sqlite3.connect('wanderlog.db')
+    conn = sqlite3.connect('voyagelog.db')
     c = conn.cursor()
     c.execute("DELETE FROM trip WHERE id = ?", (trip_id,))
     conn.commit()
@@ -109,7 +109,7 @@ def add_photo(trip_id, image, caption):
         f.write(img_bytes.getvalue())
     
     # Save to database
-    conn = sqlite3.connect('wanderlog.db')
+    conn = sqlite3.connect('voyagelog.db')
     c = conn.cursor()
     c.execute('''
         INSERT INTO photo (filename, caption, trip_id)
@@ -119,7 +119,7 @@ def add_photo(trip_id, image, caption):
     conn.close()
 
 def get_photos(trip_id):
-    conn = sqlite3.connect('wanderlog.db')
+    conn = sqlite3.connect('voyagelog.db')
     photos = pd.read_sql_query("SELECT * FROM photo WHERE trip_id = ?", conn, params=(trip_id,))
     conn.close()
     return photos
@@ -129,7 +129,7 @@ init_db()
 
 # Main app
 def main():
-    st.title("✈️ WanderLog - Your Travel Journal")
+    st.title("✈️ VoyageLog - Your Travel Journal")
     st.markdown("---")
     
     # Sidebar navigation

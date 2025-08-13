@@ -1,4 +1,4 @@
-# WanderLog - Streamlit Version
+# VoyageLog - Streamlit Version
 
 A beautiful travel journal application built with Streamlit that allows users to log their trips, add photos, and view them on an interactive map.
 
@@ -66,11 +66,11 @@ streamlit deploy streamlit_app.py
 ## File Structure
 
 ```
-wanderlog/
+voyagelog/
 ├── streamlit_app.py          # Main Streamlit application
 ├── requirements_streamlit.txt # Python dependencies
 ├── README_STREAMLIT.md       # This file
-├── wanderlog.db             # SQLite database (created automatically)
+├── voyagelog.db             # SQLite database (created automatically)
 └── uploads/                 # Photo uploads directory (created automatically)
 ```
 
@@ -123,7 +123,7 @@ The modular structure makes it easy to add new features:
 
 2. **Photos not loading**: Make sure the `uploads/` directory exists and has proper permissions
 
-3. **Database errors**: Delete `wanderlog.db` to reset the database
+3. **Database errors**: Delete `voyagelog.db` to reset the database
 
 ### Performance Tips
 
